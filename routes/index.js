@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const transactionController = require('../controllers/transactionController')
 
-router.get('/', (req, res) => {
-  res.render('hello', {
-    title: 'Home'
-  });
-});
+router.get('/', transactionController.homePage);
 
 module.exports = router;
