@@ -1,4 +1,4 @@
 extends layout
 
 block content
-  p Hello
+  h2 Today ends in #{h.dateFns.differenceInHours(h.dateFns.endOfDay(new Date()), new Date())} hours
