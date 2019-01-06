@@ -1,0 +1,9 @@
+mixin transactionForm(transaction = {})
+  form(action="/add" method="POST" class="card")
+    label(for="info") Info
+    input(type="text" name="info" placeholder ="Transaction description")
+    label(for="description") Price
+    input(type="number" name="price" min="0" placeholder="Enter a number value")
+    label(for="date") Date
+    input(type="date" name="date" min="0")
+    input(type="submit" value="Save →" class="button")
