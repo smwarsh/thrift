@@ -15,14 +15,7 @@ const transactionSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: 'Please choose a date for this transaction'
-  },
-  id: Number
+  }
 });
-
-transactionSchema.pre('save', function(next) {
-  // this.id = 
-  // Here is where I will auto increment the id or do something like that
-  next();
-})
 
 module.exports = mongoose.model('Transaction', transactionSchema);
