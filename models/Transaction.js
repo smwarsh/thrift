@@ -2,6 +2,18 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const slug = require('slugs'); // I don't think I need this for Thrift
 
+function toInteger(p) {
+  return parseInt((p * 100));
+}
+
+function toPrice(value) {
+  return (value / 100).toFixed(2);
+  // value /= 100;
+  // Number(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2)
+  // I'll be able to test this soon, when I find the db entry
+  // to edit the entry, later in Module 4
+}
+
 const transactionSchema = new mongoose.Schema({
   info: {
     type: String,
@@ -10,24 +22,14 @@ const transactionSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: 'Please enter a price for this transaction'
+    required: 'Please enter a price for this transaction',
+    set: toInteger,
+    get: toPrice
   },
   date: {
     type: Date,
     required: 'Please choose a date for this transaction'
   }
 });
-
-// Getter
-transactionSchema.path('price').get((num) => {
-  console.log("Getter reached");
-  (num / 100).toFixed(2);
-})
-
-// Setter
-transactionSchema.path('price').set((num) => {
-  console.log("Setter reached");
-  num * 100;
-})
 
 module.exports = mongoose.model('Transaction', transactionSchema);
