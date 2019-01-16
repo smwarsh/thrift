@@ -10,8 +10,7 @@ exports.addTransaction = (req, res) => {
 }
 
 exports.createTransaction = async (req, res) => {
-  const transaction = new Transaction(req.body);
-  await transaction.save();
+  const transaction = await (new Transaction(req.body)).save();
   req.flash('success', `Successfully added "${transaction.info}"`);
   res.redirect('/');
 }
