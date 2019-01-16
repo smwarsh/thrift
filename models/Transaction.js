@@ -18,4 +18,16 @@ const transactionSchema = new mongoose.Schema({
   }
 });
 
+// Getter
+transactionSchema.path('price').get((num) => {
+  console.log("Getter reached");
+  (num / 100).toFixed(2);
+})
+
+// Setter
+transactionSchema.path('price').set((num) => {
+  console.log("Setter reached");
+  num * 100;
+})
+
 module.exports = mongoose.model('Transaction', transactionSchema);
