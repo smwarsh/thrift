@@ -1,5 +1,26 @@
 mixin transactionForm(transaction = {})
   form(action="/add" method="POST" class="card")
+    label(for="category") Category
+    select(name="category")
+      option(value="income-salary") Income - Salary
+      option(value="income-cashback") Income - Cash Back
+      option(value="income-gifts") Income - Gifts
+      option(value="income-other") Income - Other
+      option(value="food") Food
+      option(value="transportation") Transportation
+      option(value="trips") Trips
+      option(value="gifts") Gifts
+      option(value="health") Health
+      option(value="beauty") Beauty
+      option(value="recreational") Recreational Activities
+      option(value="shopping") Shopping
+      option(value="sports") Sports
+      option(value="pets") Pets
+      option(value="education") Education
+      option(value="entertainment") Entertainment
+      option(value="work") Work
+      option(value="housing") Housing
+      option(value="other") Other
     label(for="info") Info
     input(type="text" name="info" placeholder="Transaction description")
     label(for="description") Price

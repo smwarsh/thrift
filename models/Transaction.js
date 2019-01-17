@@ -15,6 +15,10 @@ function toPrice(value) {
 }
 
 const transactionSchema = new mongoose.Schema({
+  category: {
+    type: String,
+    required: 'Please choose a category'
+  },
   info: {
     type: String,
     trim: true,
