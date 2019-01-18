@@ -15,6 +15,10 @@ function toPrice(value) {
 }
 
 const transactionSchema = new mongoose.Schema({
+  group: {
+    type: String,
+    required: 'Please select Expense or Income'
+  },
   category: {
     type: String,
     required: 'Please choose a category'

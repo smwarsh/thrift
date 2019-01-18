@@ -801,6 +801,7 @@ label {
 
 .tag {
   display: block;
+  width: 100%;
   margin-right: 1rem; }
   .tag__choice {
     display: -ms-flexbox;

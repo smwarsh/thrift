@@ -9,6 +9,7 @@
 
 .tag {
   display: block;
+  width: 100%; // added by SW
   margin-right: 1rem;
   &__choice {
     display: flex;
