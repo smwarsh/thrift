@@ -1,4 +1,5 @@
 mixin transactionForm(transaction = {})
+  script(src='../../javascripts/form-helpers.js')
   form(action="/add" method="POST" class="card")
     ul.tags
       .tag.tag__choice
@@ -13,6 +14,19 @@ mixin transactionForm(transaction = {})
       option(value="" selected) Select a Category
       each category in categories
         option(value=category) #{category}
+
+    //- From "Javascript Form Select Change Options Tutorial Dynamic List Elements HTML5"
+    | Group:
+    select(id="select-group" name="select-group" onchange="populate(this.id, 'select-category')")
+      option(value="") Select Expense or Income
+      option(value="Expense") Expense
+      option(value="Income") Income
+
+    | Category:
+    select(id="select-category" name="select-category")
+      option(value="") Select a Category
+
+
     label(for="info") Info
     input(type="text" name="info" placeholder="Transaction description")
     label(for="description") Price
