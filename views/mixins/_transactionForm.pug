@@ -8,24 +8,9 @@ mixin transactionForm(transaction = {})
         input(type="radio" name="group" value="income" id="income" onclick="populate(this.id, 'category')")
         label(for="income") Income
 
-    //- - const categories = ['Income - Salary', 'Income - Cash Back', 'Income - Gifts', 'Income - Other', 'Food', 'Transportation', 'Trips', 'Gifts', 'Health', 'Beauty', 'Recreational Activities', 'Shopping', 'Sports', 'Pets', 'Education', 'Entertainment', 'Work', 'Housing', 'Other']
     label(for="category") Category
     select(name="category" id="category")
       option(value="") Select a Category
-      //- each category in categories
-      //-   option(value=category) #{category}
-
-    //- From "Javascript Form Select Change Options Tutorial Dynamic List Elements HTML5"
-    //- | Group:
-    //- select(id="select-group" name="select-group" onchange="populate(this.id, 'select-category')")
-    //-   option(value="") Select Expense or Income
-    //-   option(value="expense") Expense
-    //-   option(value="income") Income
-
-    //- | Category:
-    //- select(id="select-category" name="select-category")
-    //-   option(value="") Select a Category
-
 
     label(for="info") Info
     input(type="text" name="info" placeholder="Transaction description")
