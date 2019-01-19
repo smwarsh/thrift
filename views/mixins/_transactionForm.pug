@@ -3,28 +3,28 @@ mixin transactionForm(transaction = {})
   form(action="/add" method="POST" class="card")
     ul.tags
       .tag.tag__choice
-        input(type="radio" name="group" value="expense" id="expense" checked)
+        input(type="radio" name="group" value="expense" id="expense" onclick="populate(this.id, 'category')")
         label(for="expense") Expense
-        input(type="radio" name="group" value="income" id="income")
+        input(type="radio" name="group" value="income" id="income" onclick="populate(this.id, 'category')")
         label(for="income") Income
 
-    - const categories = ['Income - Salary', 'Income - Cash Back', 'Income - Gifts', 'Income - Other', 'Food', 'Transportation', 'Trips', 'Gifts', 'Health', 'Beauty', 'Recreational Activities', 'Shopping', 'Sports', 'Pets', 'Education', 'Entertainment', 'Work', 'Housing', 'Other']
+    //- - const categories = ['Income - Salary', 'Income - Cash Back', 'Income - Gifts', 'Income - Other', 'Food', 'Transportation', 'Trips', 'Gifts', 'Health', 'Beauty', 'Recreational Activities', 'Shopping', 'Sports', 'Pets', 'Education', 'Entertainment', 'Work', 'Housing', 'Other']
     label(for="category") Category
-    select(name="category")
-      option(value="" selected) Select a Category
-      each category in categories
-        option(value=category) #{category}
+    select(name="category" id="category")
+      option(value="") Select a Category
+      //- each category in categories
+      //-   option(value=category) #{category}
 
     //- From "Javascript Form Select Change Options Tutorial Dynamic List Elements HTML5"
-    | Group:
-    select(id="select-group" name="select-group" onchange="populate(this.id, 'select-category')")
-      option(value="") Select Expense or Income
-      option(value="Expense") Expense
-      option(value="Income") Income
+    //- | Group:
+    //- select(id="select-group" name="select-group" onchange="populate(this.id, 'select-category')")
+    //-   option(value="") Select Expense or Income
+    //-   option(value="expense") Expense
+    //-   option(value="income") Income
 
-    | Category:
-    select(id="select-category" name="select-category")
-      option(value="") Select a Category
+    //- | Category:
+    //- select(id="select-category" name="select-category")
+    //-   option(value="") Select a Category
 
 
     label(for="info") Info
