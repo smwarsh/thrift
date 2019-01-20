@@ -8,9 +8,11 @@ mixin transactionForm(transaction = {})
         input(type="radio" name="group" value="income" id="income" onclick="populate(this.id, 'category')")
         label(for="income" class="button") Income
 
+    - const optionArray = [['','Select a Category'], ['Expense - Food','Food'], ['Expense - Transportation','Transportation'], ['Expense - Trips','Trips'], ['Expense - Gifts','Gifts', 'Expense - Health','Health'], ['Expense - Beauty','Beauty'], ['Expense - Recreational Activities','Recreational Activities'], ['Expense - Shopping','Shopping', 'Expense - Sports','Sports', 'Expense - Pets','Pets'], ['Expense - Education','Education'], ['Expense - Entertainment','Entertainment'], ['Expense - Work','Work'], ['Expense - Housing','Housing'], ['Expense - Other','Other']];
     label(for="category") Category
     select(name="category" id="category")
-      option(value="") Select a Category
+      each option in optionArray
+        option(value=option[0]) #{option[1]}
 
     label(for="info") Info
     input(type="text" name="info" placeholder="Transaction description")
