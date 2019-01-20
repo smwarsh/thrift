@@ -3,10 +3,10 @@ mixin transactionForm(transaction = {})
   form(action="/add" method="POST" class="card")
     ul.tags
       .tag.tag__choice
-        input(type="radio" name="group" value="expense" id="expense" onclick="populate(this.id, 'category')")
-        label(for="expense") Expense
+        input(type="radio" name="group" value="expense" id="expense" onclick="populate(this.id, 'category')" checked)
+        label(for="expense" class="button") Expense
         input(type="radio" name="group" value="income" id="income" onclick="populate(this.id, 'category')")
-        label(for="income") Income
+        label(for="income" class="button") Income
 
     label(for="category") Category
     select(name="category" id="category")
