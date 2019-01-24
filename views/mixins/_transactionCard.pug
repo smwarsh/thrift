@@ -1,0 +1,8 @@
+mixin transactionCard(transaction = {})
+  .store
+    .store__hero
+      img(src=`/uploads/${transaction.photo || 'store.png'}`)
+      h2.title 
+        a(href="#") #{transaction.info}
+    .store__details
+      p= transaction.price

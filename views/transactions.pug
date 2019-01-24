@@ -1,0 +1,10 @@
+extends layout
+
+include mixins/_transactionCard
+block content
+  .inner
+    h2 Today ends in #{h.dateFns.differenceInHours(h.dateFns.endOfDay(new Date()), new Date())} hours
+    h2= title
+    .transactions
+      each transaction in transactions
+        +transactionCard(transaction)
