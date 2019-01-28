@@ -8,7 +8,7 @@ mixin transactionForm(transaction = {})
         input(type="radio" name="group" value="income" id="income" onclick="populate(this.id, 'category')")
         label(for="income" class="button") Income
 
-    - const optionArray = [['','Select a Category'], ['Expense - Food','Food'], ['Expense - Transportation','Transportation'], ['Expense - Trips','Trips'], ['Expense - Gifts','Gifts', 'Expense - Health','Health'], ['Expense - Beauty','Beauty'], ['Expense - Recreational Activities','Recreational Activities'], ['Expense - Shopping','Shopping', 'Expense - Sports','Sports', 'Expense - Pets','Pets'], ['Expense - Education','Education'], ['Expense - Entertainment','Entertainment'], ['Expense - Work','Work'], ['Expense - Housing','Housing'], ['Expense - Other','Other']];
+    - const optionArray = [['','Select a Category'], ['Expense - Food','Food'], ['Expense - Transportation','Transportation'], ['Expense - Trips','Trips'], ['Expense - Gifts','Gifts', 'Expense - Health','Health'], ['Expense - Beauty','Beauty'], ['Expense - Recreational Activities','Recreational Activities'], ['Expense - Shopping','Shopping'], ['Expense - Sports','Sports'], ['Expense - Pets','Pets'], ['Expense - Education','Education'], ['Expense - Entertainment','Entertainment'], ['Expense - Work','Work'], ['Expense - Housing','Housing'], ['Expense - Other','Other']];
     label(for="category") Category
     select(name="category" id="category")
       each option in optionArray

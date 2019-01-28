@@ -7,11 +7,8 @@ function toInteger(p) {
 }
 
 function toPrice(value) {
-  // return (value / 100).toFixed(2);
   value /= 100;
   return parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
-  // I'll be able to test this soon, when I find the db entry
-  // to edit the entry, later in Module 4
 }
 
 const transactionSchema = new mongoose.Schema({
