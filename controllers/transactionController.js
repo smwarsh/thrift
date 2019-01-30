@@ -17,6 +17,8 @@ exports.createTransaction = async (req, res) => {
 
 exports.getTransactions = async (req, res) => {
   // 1. Query the database for a list of all transactions
-  const transactions = await Transaction.find();
-  res.render('transactions', { title: 'Transactions', transactions });
+  // const transactions = await Transaction.find({"category": "Expense - Trips"});
+  // res.render('transactions', { title: 'Transactions', transactions });
+  const transactions = await Transaction.group();
+  res.json(transactions);
 };

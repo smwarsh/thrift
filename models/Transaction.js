@@ -37,4 +37,10 @@ const transactionSchema = new mongoose.Schema({
   }
 });
 
+transactionSchema.statics.group = function() {
+  return this.aggregate([
+    { $group: { _id: '$group'} }
+  ]);
+}
+
 module.exports = mongoose.model('Transaction', transactionSchema);
