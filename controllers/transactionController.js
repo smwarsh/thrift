@@ -20,5 +20,6 @@ exports.getTransactions = async (req, res) => {
   // const transactions = await Transaction.find({"category": "Expense - Trips"});
   // res.render('transactions', { title: 'Transactions', transactions });
   const transactions = await Transaction.group();
-  res.json(transactions);
+
+  res.json(transactions[0].transactions[0]);
 };

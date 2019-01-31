@@ -39,7 +39,20 @@ const transactionSchema = new mongoose.Schema({
 
 transactionSchema.statics.group = function() {
   return this.aggregate([
-    { $group: { _id: '$group'} }
+    { 
+      $group: 
+      {
+        _id: { group: '$group', category: '$category' },
+        transactions: { $push: {
+          info: '$info',
+          price: '$price',
+          date: '$date'
+        }}
+      }
+    },
+    {
+      $sort: { '_id.category': 1 }
+    }
   ]);
 }
 
