@@ -1,0 +1,5 @@
+mixin transactionDisplay(transactions)
+  script(src='../../javascripts/display.js')
+  - const categories = getCategories(transactions)
+  each cat in categories
+    h3= cat
