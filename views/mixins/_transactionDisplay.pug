@@ -1,5 +1,6 @@
-mixin transactionDisplay(transactions)
+mixin transactionDisplay(transactions = {})
   script(src='../../javascripts/display.js')
-  - const categories = getCategories(transactions)
-  each cat in categories
-    h3= cat
+  p= transactions.map( object => { object._id.category })
+  //- - const categories = transactions.map( object => { object._id.category })
+  //- each cat in categories
+  //-   h3= cat

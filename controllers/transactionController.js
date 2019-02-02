@@ -6,8 +6,7 @@ exports.homePage = (req, res) => {
 };
 
 exports.addTransaction = (req, res) => {
-  // res.render('editTransaction', { title: 'Add Transaction' });
-  
+  res.render('editTransaction', { title: 'Add Transaction' });
 };
 
 exports.createTransaction = async (req, res) => {
