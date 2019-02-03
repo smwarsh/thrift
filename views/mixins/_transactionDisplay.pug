@@ -1,6 +1,13 @@
 mixin transactionDisplay(transactions = {})
-  script(src='../../javascripts/display.js')
-  p= transactions.map( object => { object._id.category })
-  //- - const categories = transactions.map( object => { object._id.category })
+  - const categories = transactions.map( object => { object._id.category })
+  //- this makes an array [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined] ... why? it can console.log object._id.category just fine
+  //- should i try a for loop?
+
+  //- - const category = transactions[0]._id.category
+  //- p= category //- this works just fine
+
   //- each cat in categories
-  //-   h3= cat
+    //- h3= cat
+    //- - console.log(cat) //- prints out "undefined" for each
+    
+  - console.log(categories[0]) //- prints out "undefined"
