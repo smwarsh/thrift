@@ -2,4 +2,14 @@ mixin transactionDisplay(transactions = {})
   - const categories = transactions.map( object => object._id.category )
   each cat in categories
     h3= cat
-    - console.log(cat)
+    - const thisCategory = transactions.find( object => object._id.category === cat );
+    table
+      tr
+        th Info
+        th Price
+        th Date
+      each transaction in thisCategory.transactions
+        tr
+          td= transaction.info
+          td= transaction.price
+          td= transaction.date
