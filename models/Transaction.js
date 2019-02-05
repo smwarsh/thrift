@@ -51,7 +51,8 @@ transactionSchema.statics.group = function() {
       }
     },
     {
-      $sort: { '_id.category': 1 }
+      // $sort: { '_id.category': 1, '_id.group': 1 }
+      $sort: { '_id.group': 1, '_id.category': 1 }
     }
   ]);
 }
