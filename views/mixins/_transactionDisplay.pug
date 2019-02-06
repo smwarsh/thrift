@@ -1,16 +1,15 @@
 mixin transactionDisplay(transactions = {})
-  script(src='../../javascripts/display.js')
-  - const categories = transactions.map( object => object._id.category )
+  - const categories = getCategories(transactions)
   each cat in categories
     h3= cat
-    - const thisCategory = transactions.find( object => object._id.category === cat );
+    - const catTrans = getTransactions(transactions, cat)
     table
       tr
         th Info
         th Price
         th Date
-      each transaction in thisCategory.transactions
+      each trans in thisCategory.transactions
         tr
           td= transaction.info
-          td $#{parseFloat(Math.round((transaction.price / 100) + "e" + 2) + "e-" + 2).toFixed(2)}
-          td= h.dateFns.format(transaction.date, 'ddd MMM D[,] YYYY')
+          td= h.display.toPrice(trans.price)
+          td= h.display.displayAsDate(trans.date)

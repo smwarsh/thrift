@@ -28,3 +28,17 @@ exports.menu = [
   { slug: '/add', title: 'Add', icon: 'add', },
   { slug: '/map', title: 'Map', icon: 'map', },
 ];
+
+exports.display = {
+  getCategories: trans => trans.map( object => object._id.category ),
+  
+  getTransactions: (trans, category) =>
+    trans.find(object => object._id.category === category).transactions,
+  
+  displayAsDate: date => h.dateFns.format(date, 'ddd MMM D[,] YYYY'),
+  
+  toPrice(value) {
+    value /= 100;
+    return '$' + parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
+  },
+}
