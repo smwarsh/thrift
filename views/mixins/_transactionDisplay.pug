@@ -8,8 +8,8 @@ mixin transactionDisplay(transactions = {})
         th Info
         th Price
         th Date
-      each trans in catTrans.transactions
+      each trans in catTrans
         tr
-          td= transaction.info
+          td= trans.info
           td= h.display.toPrice(trans.price)
           td= h.display.displayAsDate(trans.date)

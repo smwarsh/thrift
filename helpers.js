@@ -4,10 +4,11 @@
 
 // FS is a built in module to node that let's us read files from the system we're running on
 const fs = require('fs');
+const dateFns = require('date-fns');
 
 // moment.js is a handy library for displaying dates. We need this in our templates to display things like "Posted 5 minutes ago"
 // I am attempting to change the moment dependency to the date-fns library -SW
-exports.dateFns = require('date-fns');
+exports.dateFns = dateFns;
 
 // Dump is a handy debugging function we can use to sort of "console.log" our data
 exports.dump = (obj) => JSON.stringify(obj, null, 2);
@@ -32,10 +33,10 @@ exports.menu = [
 exports.display = {
   getCategories: trans => trans.map( object => object._id.category ),
   
-  getTransactions: (trans, category) =>
+  getTransactions: (trans, category) => 
     trans.find(object => object._id.category === category).transactions,
   
-  displayAsDate: date => h.dateFns.format(date, 'ddd MMM D[,] YYYY'),
+  displayAsDate: date => dateFns.format(date, 'ddd MMM D[,] YYYY'),
   
   toPrice(value) {
     value /= 100;
