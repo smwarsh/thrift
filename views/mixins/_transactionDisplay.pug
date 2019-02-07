@@ -1,14 +1,14 @@
 mixin transactionDisplay(transactions = {})
-  - const categories = getCategories(transactions)
+  - const categories = h.display.getCategories(transactions)
   each cat in categories
     h3= cat
-    - const catTrans = getTransactions(transactions, cat)
+    - const catTrans = h.display.getTransactions(transactions, cat)
     table
       tr
         th Info
         th Price
         th Date
-      each trans in thisCategory.transactions
+      each trans in catTrans.transactions
         tr
           td= transaction.info
           td= h.display.toPrice(trans.price)
