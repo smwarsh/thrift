@@ -19,3 +19,17 @@ function toPrice(value) {
   value /= 100;
   return '$' + parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
 }
+
+// I haven't tested this function yet, but
+// this is my preliminary idea for cleaning
+// up the category names
+function fixCategoryName(category) {
+  let categoryArray = category.split("");
+  let sliceLength = 0;
+  if(category.startsWith("Expense")) {
+    sliceLength = 10;
+  } else if(category.startsWith("Income")) {
+    sliceLength = 9;
+  }
+  return (categoryArray.slice(sliceLength)).join("");
+}
