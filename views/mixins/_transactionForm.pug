@@ -9,15 +9,18 @@ mixin transactionForm(transaction = {})
         label(for="income" class="button") Income
 
     - const optionArray = [['','Select a Category'], ['Expense - Food','Food'], ['Expense - Transportation','Transportation'], ['Expense - Trips','Trips'], ['Expense - Gifts','Gifts', 'Expense - Health','Health'], ['Expense - Beauty','Beauty'], ['Expense - Recreational Activities','Recreational Activities'], ['Expense - Shopping','Shopping'], ['Expense - Sports','Sports'], ['Expense - Pets','Pets'], ['Expense - Education','Education'], ['Expense - Entertainment','Entertainment'], ['Expense - Work','Work'], ['Expense - Housing','Housing'], ['Expense - Other','Other']];
+    - const selectedCategory = transaction.category || ''
     label(for="category") Category
     select(name="category" id="category")
       each option in optionArray
-        option(value=option[0]) #{option[1]}
+        option(value=option[0] selected=(option[0]===selectedCategory)) #{option[1]}
+        //- I don't know if selected="true" is valid
+        //- I should find a way to make it selected="selected" or not there at all
 
     label(for="info") Info
-    input(type="text" name="info" placeholder="Transaction description")
+    input(type="text" name="info" placeholder="Transaction description" value=transaction.info)
     label(for="description") Price
-    input(type="text" name="price" min="0" pattern="^\\d*(\\.\\d{0,2})?$" placeholder="0.00")
+    input(type="text" name="price" min="0" pattern="^\\d*(\\.\\d{0,2})?$" placeholder="0.00" value=transaction.price)
     label(for="date") Date
-    input(type="date" name="date" min="0")
+    input(type="date" name="date" min="0" value=transaction.date)
     input(type="submit" value="Save →" class="button")
