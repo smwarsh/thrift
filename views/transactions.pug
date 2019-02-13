@@ -1,6 +1,7 @@
 extends layout
 
 include mixins/_transactionDisplay
+
 block content
   .inner
     h2 Today ends in #{h.dateFns.differenceInHours(h.dateFns.endOfDay(new Date()), new Date())} hours
