@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const slug = require('slugs'); // I don't think I need this for Thrift
+const uuid = require('uuid');
 
 function toInteger(p) {
   return Math.round((p * 100));
@@ -34,6 +35,10 @@ const transactionSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: 'Please choose a date for this transaction'
+  },
+  id: {
+    type: String,
+    default: uuid.v4()
   }
 });
 
@@ -46,7 +51,8 @@ transactionSchema.statics.group = function() {
         transactions: { $push: {
           info: '$info',
           price: '$price',
-          date: '$date'
+          date: '$date',
+          id: '$id'
         }}
       }
     },
