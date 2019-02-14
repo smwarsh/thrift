@@ -8,8 +8,12 @@ mixin transactionDisplay(transactions = {})
         th Info
         th Price
         th Date
+        th Edit
       each trans in catTrans
         tr
           td= trans.info
           td= h.display.toPrice(trans.price)
           td= h.display.displayAsDate(trans.date)
+          td
+            a(href=`/transactions/${trans.id}/edit`)
+              != h.icon('pencil')
