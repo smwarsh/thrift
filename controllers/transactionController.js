@@ -19,3 +19,10 @@ exports.getTransactions = async (req, res) => {
   const transactions = await Transaction.group(); // get data
   res.render('transactions', { title: 'Transactions', transactions }); // pass data to template
 };
+
+exports.editTransaction = async (req, res) => {
+  // find the store given the id
+  const transaction = await Transaction.findOne({ id: req.params.id });
+  // then render out the edit form
+  res.render('editTransaction', { title: 'Edit', transaction})
+};
