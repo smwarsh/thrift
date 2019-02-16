@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const slug = require('slugs'); // I don't think I need this for Thrift
-const uuid = require('uuid');
+const uuidv4 = require('uuid/v4');
 
 function toInteger(p) {
   return Math.round((p * 100));
@@ -38,7 +38,7 @@ const transactionSchema = new mongoose.Schema({
   },
   id: {
     type: String,
-    default: uuid.v4()
+    default: uuidv4()
   }
 });
 
