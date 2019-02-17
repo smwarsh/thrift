@@ -15,5 +15,5 @@ mixin transactionDisplay(transactions = {})
           td= h.display.toPrice(trans.price)
           td= h.display.displayAsDate(trans.date)
           td
-            a(href=`/transactions/${trans.id}/edit`)
+            a(href=`/transactions/${trans._id}/edit`)
               != h.icon('pencil')

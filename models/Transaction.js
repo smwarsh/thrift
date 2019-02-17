@@ -35,10 +35,6 @@ const transactionSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: 'Please choose a date for this transaction'
-  },
-  id: {
-    type: String,
-    default: uuidv4()
   }
 });
 
@@ -52,7 +48,7 @@ transactionSchema.statics.group = function() {
           info: '$info',
           price: '$price',
           date: '$date',
-          id: '$id'
+          _id: '$_id'
         }}
       }
     },
