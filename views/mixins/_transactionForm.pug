@@ -24,9 +24,12 @@ mixin transactionForm(transaction = {})
     input(type="text" name="price" min="0" pattern="^\\d*(\\.\\d{0,2})?$" placeholder="0.00" value=transaction.price)
     label(for="date") Date
     //- autofill with either inputted transaction date or today's date
-    - let date = h.dateFns.format(new Date(), 'YYYY-MM-DD')
-    - if (transaction.date) { date = h.dateFns.format(transaction.date, 'YYYY-MM-DD') } //- this puts in today's date correctly, but the transaction is coming up as the wrong date
-    //- this isn't working but at least uuid is now...
+    - let date = h.display.formatTheDate(new Date(), 'YYYY-MM-DD')
+    //- - if (transaction.date) { date = h.dateFns.format(new Date(transaction.date), 'YYYY-MM-DD') }
+    //- - console.log(transaction.date.toISOString())
+    //- - if (transaction.date) { date = (transaction.date.toISOString()).slice(0,10) }
+    - if (transaction.date) { date = h.display.formatTheDate(transaction.date, 'YYYY-MM-DD') }
+    //- - if (transaction.date) { date = h.dateFns.format(transaction.date, 'YYYY-MM-DD') } //- this puts in today's date correctly, but the transaction is coming up as the wrong date
 
     input(type="date" name="date" min="0" value=date)
     input(type="submit" value="Save →" class="button")

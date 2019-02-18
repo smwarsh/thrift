@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const slug = require('slugs'); // I don't think I need this for Thrift
-const uuidv4 = require('uuid/v4');
+// const dateFns = require('date-fns');
 
 function toInteger(p) {
   return Math.round((p * 100));
@@ -11,6 +11,10 @@ function toPrice(value) {
   value /= 100;
   return parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
 }
+
+// function formatDate(date) {
+//   return dateFns.format(new Date(date), 'YYYY[,]MM[,]DD');
+// }
 
 const transactionSchema = new mongoose.Schema({
   group: {
@@ -34,9 +38,15 @@ const transactionSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: 'Please choose a date for this transaction'
+    required: 'Please choose a date for this transaction',
+    // set: formatDate
   }
 });
+
+// transactionSchema.pre('save', function(next) {
+//   dateFns.format(this.date, 'YYYY-MM-DD');
+//   next();
+// });
 
 transactionSchema.statics.group = function() {
   return this.aggregate([

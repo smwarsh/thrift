@@ -43,6 +43,15 @@ exports.display = {
     return '$' + parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
   },
 
+  formatTheDate(date, format) {
+    const [ year, month, day ] = (date.toISOString()).substr(0, 10).split('-');
+    return dateFns.format(new Date(
+      year,
+      (month - 1),
+      day,
+    ), format);
+  },
+
   // I haven't tested this function yet, but
   // this is my preliminary idea for cleaning
   // up the category names
