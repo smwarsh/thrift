@@ -3,12 +3,13 @@ mixin transactionForm(transaction = {})
   form(action="/add" method="POST" class="card")
     ul.tags
       .tag.tag__choice
-        input(type="radio" name="group" value="expense" id="expense" onclick="populate(this.id, 'category')" checked)
+        input(type="radio" name="group" value="expense" id="expense" onclick="populate(this.id, 'category')" checked=(transaction.group==="expense"))
         label(for="expense" class="button") Expense
-        input(type="radio" name="group" value="income" id="income" onclick="populate(this.id, 'category')")
+        input(type="radio" name="group" value="income" id="income" onclick="populate(this.id, 'category')" checked=(transaction.group==="income"))
         label(for="income" class="button") Income
 
-    - const optionArray = [['','Select a Category'], ['Expense - Food','Food'], ['Expense - Transportation','Transportation'], ['Expense - Trips','Trips'], ['Expense - Gifts','Gifts'], ['Expense - Health','Health'], ['Expense - Beauty','Beauty'], ['Expense - Recreational Activities','Recreational Activities'], ['Expense - Shopping','Shopping'], ['Expense - Sports','Sports'], ['Expense - Pets','Pets'], ['Expense - Education','Education'], ['Expense - Entertainment','Entertainment'], ['Expense - Work','Work'], ['Expense - Housing','Housing'], ['Expense - Other','Other']];
+    - let optionArray = []
+    - if(transaction.group==="income") { optionArray = [['','Select a Category'], ['Income - Salary','Salary'], ['Income - Cash Back','Cash Back'], ['Income - Gifts','Gifts'], ['Income - Other','Other']] } else { optionArray = [['','Select a Category'], ['Expense - Food','Food'], ['Expense - Transportation','Transportation'], ['Expense - Trips','Trips'], ['Expense - Gifts','Gifts'], ['Expense - Health','Health'], ['Expense - Beauty','Beauty'], ['Expense - Recreational Activities','Recreational Activities'], ['Expense - Shopping','Shopping'], ['Expense - Sports','Sports'], ['Expense - Pets','Pets'], ['Expense - Education','Education'], ['Expense - Entertainment','Entertainment'], ['Expense - Work','Work'], ['Expense - Housing','Housing'], ['Expense - Other','Other']] }
     - const selectedCategory = transaction.category || ''
     label(for="category") Category
     select(name="category" id="category")
