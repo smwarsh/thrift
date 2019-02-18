@@ -26,3 +26,13 @@ exports.editTransaction = async (req, res) => {
   // then render out the edit form
   res.render('editTransaction', { title: 'Edit', transaction})
 };
+
+exports.updateTransaction = async (req, res) => {
+  // find and update the store
+  const transaction = await Transaction.findOneAndUpdate({ _id: req.params.id }, req.body, {
+    new: true, // return the new transaction instead of the old one
+    runValidators: true
+  }).exec();
+  req.flash('success', `Successfully updated <strong>${transaction.info}</strong>`);
+  res.redirect('/transactions');
+}

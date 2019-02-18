@@ -7,6 +7,7 @@ router.get('/', catchErrors(transactionController.getTransactions));
 router.get('/transactions', catchErrors(transactionController.getTransactions));
 router.get('/add', transactionController.addTransaction);
 router.post('/add', catchErrors(transactionController.createTransaction));
+router.post('/add/:id', catchErrors(transactionController.updateTransaction));
 router.get('/transactions/:id/edit', catchErrors(transactionController.editTransaction));
 
 module.exports = router;

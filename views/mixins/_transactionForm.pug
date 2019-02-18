@@ -1,9 +1,9 @@
 mixin transactionForm(transaction = {})
   script(src='../../javascripts/form-helpers.js')
-  form(action="/add" method="POST" class="card")
+  form(action=`/add/${transaction._id || ''}` method="POST" class="card")
     ul.tags
       .tag.tag__choice
-        input(type="radio" name="group" value="expense" id="expense" onclick="populate(this.id, 'category')" checked=(transaction.group==="expense"))
+        input(type="radio" name="group" value="expense" id="expense" onclick="populate(this.id, 'category')" checked)
         label(for="expense" class="button") Expense
         input(type="radio" name="group" value="income" id="income" onclick="populate(this.id, 'category')" checked=(transaction.group==="income"))
         label(for="income" class="button") Income

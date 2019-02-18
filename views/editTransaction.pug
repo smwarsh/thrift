@@ -4,6 +4,5 @@ include mixins/_transactionForm
 
 block content
   .inner
-    pre= h.dump(transaction)
     h2= title
     +transactionForm(transaction)
