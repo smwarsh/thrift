@@ -6,6 +6,7 @@ function toInteger(p) {
   return Math.round((p * 100));
 }
 
+// adapted some of this from http://www.jacklmoore.com/notes/rounding-in-javascript/
 function toPrice(value) {
   value /= 100;
   return parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);

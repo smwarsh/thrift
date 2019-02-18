@@ -41,6 +41,7 @@ exports.display = {
     return '$' + parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
   },
 
+  // adapted from solution by https://github.com/jsonberry
   formatTheDate(date, format) {
     const [ year, month, day ] = (date.toISOString()).substr(0, 10).split('-');
     return dateFns.format(new Date(
