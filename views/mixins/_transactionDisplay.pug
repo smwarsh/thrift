@@ -1,7 +1,7 @@
 mixin transactionDisplay(transactions = {})
   - const categories = h.display.getCategories(transactions)
   each cat in categories
-    h3= cat
+    h3= h.display.fixCategoryName(cat)
     - const catTrans = h.display.getTransactions(transactions, cat)
     table
       tr
