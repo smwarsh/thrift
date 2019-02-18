@@ -36,8 +36,6 @@ exports.display = {
   getTransactions: (trans, category) => 
     trans.find(object => object._id.category === category).transactions,
   
-  displayAsDate: date => dateFns.format(date, 'ddd MMM D[,] YYYY'),
-  
   toPrice(value) {
     value /= 100;
     return '$' + parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
