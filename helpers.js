@@ -35,6 +35,24 @@ exports.display = {
   
   getTransactions: (trans, category) => 
     trans.find(object => object._id.category === category).transactions,
+
+  sortTransactions(transactionArray) {
+    return transactionArray.sort((a, b) => {
+      // a and b have to be dates
+      if (dateFns.isDate(a.date) && dateFns.isDate(b.date)) {
+        // if a is after b, returns true
+        if (dateFns.isAfter(a.date, b.date)) {
+          return 1; // sort b to an index lower than a
+        } else if (dateFns.isBefore(a.date, b.date)) {
+          return -1; // sort a to an index lower than b
+        } else {
+          return 0; // leave a and b unchanged with respect to each other but sorted with respect to all different elements
+        }
+      } else {
+        console.log('These are not dates...');
+      }
+    })
+  },
   
   toPrice(value) {
     value /= 100;
