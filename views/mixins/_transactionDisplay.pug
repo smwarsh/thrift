@@ -1,8 +1,17 @@
 mixin transactionDisplay(transactions = {})
   - const categories = h.display.getCategories(transactions)
+  - let group = ''
   each cat in categories
+    //- display group name at beginning and when it switches to income
+    - const catGroup = h.display.getGroup(transactions, cat)
+    if catGroup !== group
+      - group = catGroup
+      h2= group
+
     h3= h.display.fixCategoryName(cat)
-    - const catTrans = h.display.sortTransactions(h.display.getTransactions(transactions, cat))
+    - const catTrans = h.display.sortTransactions(h.display.getTransactions(transactions, cat)) //- sort transactions by date
+
+    //- display transactions in current category
     table
       tr
         th Info

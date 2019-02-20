@@ -36,6 +36,9 @@ exports.display = {
   getTransactions: (trans, category) => 
     trans.find(object => object._id.category === category).transactions,
 
+  getGroup: (trans, category) =>
+    trans.find(object => object._id.category === category)._id.group,
+
   sortTransactions(transactionArray) {
     return transactionArray.sort((a, b) => {
       // a and b have to be dates
