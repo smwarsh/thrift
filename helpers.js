@@ -93,5 +93,12 @@ exports.maths = {
       (total, trans) => total + trans.price,
       0
     );
+  },
+
+  sumOfGroup(catSumArray) {
+    return catSumArray.reduce(
+      (total, catSum) => total + catSum,
+      0
+    );
   }
 };

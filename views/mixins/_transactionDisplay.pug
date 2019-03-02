@@ -1,6 +1,8 @@
 mixin transactionDisplay(transactions = {})
   - const categories = h.display.getCategories(transactions)
   - let group = ''
+  - let incomeCatSums = []
+  - let expenseCatSums = []
   each cat in categories
     //- display group name at beginning and when it switches to income
     - const catGroup = h.display.getGroup(transactions, cat)
@@ -28,8 +30,13 @@ mixin transactionDisplay(transactions = {})
               != h.icon('pencil')
       tr.total
         td Total:
-        td.right-cell= h.display.toPrice(h.maths.sumOfCategory(catTrans))
-        //- here, write a function to display the total of prices in this category
-        //- td.right-cell= sumOfCategory(catTrans)
+        - const catSum = h.maths.sumOfCategory(catTrans)
+        td.right-cell= h.display.toPrice(catSum)
         td
         td
+      if catGroup === 'income'
+        - incomeCatSums.push(catSum)
+      else if catGroup === 'expense'
+        - expenseCatSums.push(catSum)
+  p Total Expense: #{h.display.toPrice(h.maths.sumOfGroup(expenseCatSums))}
+  p Total Income: #{h.display.toPrice(h.maths.sumOfGroup(incomeCatSums))}
