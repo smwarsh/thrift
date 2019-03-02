@@ -28,6 +28,8 @@ mixin transactionDisplay(transactions = {})
               != h.icon('pencil')
       tr.total
         td Total:
-        td.right-cell $0.00
+        td.right-cell= h.display.toPrice(h.maths.sumOfCategory(catTrans))
+        //- here, write a function to display the total of prices in this category
+        //- td.right-cell= sumOfCategory(catTrans)
         td
         td

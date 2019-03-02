@@ -86,3 +86,12 @@ exports.display = {
     return (categoryArray.slice(sliceLength)).join("");
   }
 };
+
+exports.maths = {
+  sumOfCategory(transactionArray) {
+    return transactionArray.reduce(
+      (total, trans) => total + trans.price,
+      0
+    );
+  }
+};
