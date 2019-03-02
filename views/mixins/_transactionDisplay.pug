@@ -12,7 +12,7 @@ mixin transactionDisplay(transactions = {})
     - const catTrans = h.display.sortTransactions(h.display.getTransactions(transactions, cat)) //- sort transactions by date
 
     //- display transactions in current category
-    table
+    table.table
       tr
         th Info
         th Price
@@ -24,5 +24,5 @@ mixin transactionDisplay(transactions = {})
           td= h.display.toPrice(trans.price)
           td= h.display.formatTheDate(trans.date, 'ddd MMM D[,] YYYY')
           td
-            a(href=`/transactions/${trans._id}/edit`)
+            a(href=`/transactions/${trans._id}/edit`).pencil
               != h.icon('pencil')
