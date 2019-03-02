@@ -707,6 +707,15 @@ label {
     background: white; }
   .table tr:nth-child(odd):not(:first-child) {
     background: #f7f7f7; }
+  .table tr.total {
+    background: #f7f7f7;
+    height: 35px; }
+  .table .edit-cell {
+    width: 10%; }
+  .table .date-cell {
+    width: 20%; }
+  .table .price-cell {
+    width: 15%; }
   .table thead tr {
     background: #303030;
     color: white; }
@@ -714,6 +723,10 @@ label {
     height: 25px;
     display: block;
     margin: auto; }
+  .table .center-cell {
+    text-align: center; }
+  .table .right-cell {
+    text-align: right; }
 
 .transactions {
   display: -ms-flexbox;

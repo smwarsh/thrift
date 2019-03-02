@@ -9,6 +9,19 @@
   tr:nth-child(odd):not(:first-child) {
     background: #f7f7f7;
   }
+  tr.total {
+    background: #f7f7f7;
+    height: 35px;
+  }
+  .edit-cell {
+    width: 10%;
+  }
+  .date-cell {
+    width: 20%;
+  }
+  .price-cell {
+    width: 15%;
+  }
   thead tr {
     background: $black;
     color: white;
@@ -17,5 +30,11 @@
     height: 25px;
     display: block;
     margin: auto;
+  }
+  .center-cell {
+    text-align: center;
+  }
+  .right-cell {
+    text-align: right;
   }
 }

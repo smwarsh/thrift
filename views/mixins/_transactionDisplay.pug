@@ -15,14 +15,19 @@ mixin transactionDisplay(transactions = {})
     table.table
       tr
         th Info
-        th Price
-        th Date
-        th Edit
+        th.price-cell Price
+        th.date-cell Date
+        th.edit-cell Edit
       each trans in catTrans
         tr
           td= trans.info
-          td= h.display.toPrice(trans.price)
-          td= h.display.formatTheDate(trans.date, 'ddd MMM D[,] YYYY')
+          td.right-cell= h.display.toPrice(trans.price)
+          td.center-cell= h.display.formatTheDate(trans.date, 'ddd MMM D[,] YYYY')
           td
             a(href=`/transactions/${trans._id}/edit`).pencil
               != h.icon('pencil')
+      tr.total
+        td Total:
+        td.right-cell $0.00
+        td
+        td
