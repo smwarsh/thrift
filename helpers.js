@@ -59,7 +59,12 @@ exports.display = {
   
   toPrice(value) {
     value /= 100;
-    return '$' + parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
+    if(value < 0) {
+      return '-$' + parseFloat(Math.round((value * -1) + "e" + 2) + "e-" + 2).toFixed(2);
+    } else {
+      return '$' + parseFloat(Math.round(value + "e" + 2) + "e-" + 2).toFixed(2);
+    }
+    
   },
 
   // adapted from solution by https://github.com/jsonberry
@@ -100,5 +105,9 @@ exports.maths = {
       (total, catSum) => total + catSum,
       0
     );
+  },
+
+  difference(income, expense) {
+    return income - expense;
   }
 };

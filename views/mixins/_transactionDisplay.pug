@@ -38,5 +38,8 @@ mixin transactionDisplay(transactions = {})
         - incomeCatSums.push(catSum)
       else if catGroup === 'expense'
         - expenseCatSums.push(catSum)
-  p Total Expense: #{h.display.toPrice(h.maths.sumOfGroup(expenseCatSums))}
-  p Total Income: #{h.display.toPrice(h.maths.sumOfGroup(incomeCatSums))}
+  - const totalExpense = h.maths.sumOfGroup(expenseCatSums)
+  - const totalIncome = h.maths.sumOfGroup(incomeCatSums)
+  p Total Expense: #{h.display.toPrice(totalExpense)}
+  p Total Income: #{h.display.toPrice(totalIncome)}
+  p Total Gain: #{h.display.toPrice(h.maths.difference(totalIncome, totalExpense))}
