@@ -57,6 +57,7 @@ exports.display = {
     })
   },
   
+  // adapted from http://www.jacklmoore.com/notes/rounding-in-javascript
   toPrice(value) {
     value /= 100;
     if(value < 0) {
