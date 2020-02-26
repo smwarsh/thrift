@@ -2,12 +2,12 @@
   This is a file of data and helper functions that we can expose and use in our templating function
 */
 
-// FS is a built in module to node that let's us read files from the system we're running on
+// FS is a built-in module to Node that lets us read files from the system we're running on
 const fs = require('fs');
 const dateFns = require('date-fns');
 
-// moment.js is a handy library for displaying dates. We need this in our templates to display things like "Posted 5 minutes ago"
-// I am attempting to change the moment dependency to the date-fns library -SW
+// date-fns is a library for displaying dates. It is needed in the templates to display things like "Posted 5 minutes ago"
+// Changed to date-fns from the moment dependency in the starter files
 exports.dateFns = dateFns;
 
 // Dump is a handy debugging function we can use to sort of "console.log" our data
@@ -24,10 +24,10 @@ exports.siteName = `Thrift Spending Tracker`;
 
 exports.menu = [
   { slug: '/transactions', title: 'Transactions', icon: 'store', },
-  { slug: '/tags', title: 'Tags', icon: 'tag', },
-  { slug: '/top', title: 'Top', icon: 'top', },
+  // { slug: '/tags', title: 'Tags', icon: 'tag', },
+  // { slug: '/top', title: 'Top', icon: 'top', },
   { slug: '/add', title: 'Add', icon: 'add', },
-  { slug: '/map', title: 'Map', icon: 'map', },
+  // { slug: '/map', title: 'Map', icon: 'map', },
 ];
 
 exports.display = {
